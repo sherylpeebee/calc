@@ -6,32 +6,42 @@ function init () {
   operation();
   clearScreen();
 }
-
-  var clickNumber = function(){
+  var numStrings;
   var numSet = [];
+  var float;
+  var clickNumber = function(){
+   numStrings = [];
     $(".purple-buttons").on("click", function(){
-      var numText = $(this).text();
+      var num;
+      var numText = $(this).attr("value");
       $("#all-clear").text("C");
       $(".purple-buttons").removeClass('purple-highlight');
       $(this).addClass('purple-highlight');
-      var num = numText*1;
-      console.log(isNaN(num));
-      if( isNaN(num) === false && typeof num !== "string"){
-        numSet.push(num);
-      }
-      var numToString = numSet.join('');
-      var stringToNum = parseInt(numToString);
-      console.log(stringToNum, typeof stringToNum);
-      $('#input').val(stringToNum);
+      numStrings.push(numText);
+      var numToString = numStrings.join('');
+
+      // console.log(numStrings);
+
+      float = parseFloat(numToString);
+      console.log('float: ', float);
+      $('#input').val(float);
     });
   };
 
+  var percentage = function(){
+    return  float * 0.01;
+  };
+
+
   var operation = function(){
     $(".green-buttons").on("click", function(){
-      console.log($(this).text());
-      // $("#all-clear").text("C");
-      $("this").toggleClass("green-highlight");
-      // $(this).addClass('green-highlight');
+
+       numSet.push(float);
+       console.log('numSet: ', numSet);
+      var operatorVal = $(this).attr("value");
+      console.log(operatorVal);
+      numStrings = [];
+
     });
   };
 
@@ -39,15 +49,17 @@ function init () {
     var clearClicks = 0;
     $("#all-clear").on("click", function(){
       $('#input').val('');
+      console.log("numStrings after one clear", numStrings);
       clearClicks += 1;
       if(clearClicks <= 1){
       $("#all-clear").text("C");
       }
       else if(clearClicks >= 2){
       $("#all-clear").text("AC");
-      numSet = "";
+      numStrings = [];
+      console.log("numStrings after 2 clear", numStrings);
       clearClicks = 0;
       }
-      console.log(clearClicks);
+      // console.log(clearClicks);
     });
   };
