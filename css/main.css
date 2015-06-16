@@ -97,7 +97,8 @@ textarea {
    ========================================================================== */
 
 body#body{
-  background-color: rgb(19, 10, 74);
+  background: -webkit-gradient(linear, right top,  left bottom, color-stop(0%, rgba(19, 10, 74,1)), color-stop(100%, rgba(0,128,128,1)));
+  /*background-color: rgb(19, 10, 74);*/
 }
 .page-header{
   font-family: 'Source Code Pro';

@@ -15,8 +15,8 @@ function init () {
       var num;
       var numText = $(this).attr("value");
       $("#all-clear").text("C");
-      $(".purple-buttons").removeClass('purple-highlight');
-      $(this).addClass('purple-highlight');
+      // $(".purple-buttons").removeClass('purple-highlight');
+      // $(this).addClass('purple-highlight');
       numStrings.push(numText);
       var numToString = numStrings.join('');
 
@@ -36,11 +36,11 @@ function init () {
 
   var operation = function(){
     $(".green-buttons, [value = '%'], [value = '+/-']").on("click", function(){
-
-       numSet.push(float);
-    //    console.log('numSet: ', numSet);
       var operatorVal = $(this).attr("value");
 
+       numSet.push(float);
+       numSet.push(operatorVal);
+       console.log(numSet);
       numStrings = [];
       switch (operatorVal) {
         case "%":
@@ -51,24 +51,59 @@ function init () {
         var negativeVal = $("#input").val() * -1;
         $("#input").val(negativeVal);
           break;
-        case "+":
-        
-          break;
-        case "-":
-
-          break;
-        case "/":
-
-          break;
-        case "*":
-
-          break;
         case "=":
 
+        console.log(numSet, "equal clicked");
+        equals();
+        console.log(numSet);
+        // return numSet;
           break;
-        default:
+        }
+      function equals(){
+       var num1 = numSet[0];
+       var num2 = numSet[2];
+       switch(numSet[1]){
+       case "+":
+         result = num1 + num2;
+         $('#input').val(result);
+         break;
+       case  '-':
+         result = num1 - num2;
+         $('#input').val(result);
+         console.log(result);
+         break;
+       case  '÷':
+         result = num1 / num2;
+         $('#input').val(result);
+         break;
+       case 'x':
+         result = num1 * num2;
+         $('#input').val(result);
+         break;
+         }
+       }
+      //   function operatorDelegate(){
+      //   switch (parsedOp) {
+      //     case "%":
+      //     $("#input").val(percentage());
+      //     console.log(operatorVal);
+      //       break;
+      //   // case "+":
+      //   // console.log(numSet);
+      //   //   break;
+      //   // case "-":
+      //   //
+      //   //   break;
+      //   // case "/":
+      //   //
+      //   //   break;
+      //   // case "*":
+      //   //
+      //   //   break;
+      //   // default:
+      //   }
+      // }
 
-      }
 
     });
   };
