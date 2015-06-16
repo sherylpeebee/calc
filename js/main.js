@@ -11,7 +11,7 @@ function init () {
   var float;
   var clickNumber = function(){
    numStrings = [];
-    $(".purple-buttons").on("click", function(){
+    $(".green-buttons, .purple-buttons").on("click", function(){
       var num;
       var numText = $(this).attr("value");
       $("#all-clear").text("C");
@@ -23,24 +23,52 @@ function init () {
       // console.log(numStrings);
 
       float = parseFloat(numToString);
-      console.log('float: ', float);
+      // console.log('float: ', float);
+      // console.log(numText);
       $('#input').val(float);
     });
   };
 
   var percentage = function(){
-    return  float * 0.01;
+    return  $("#input").val() * 0.01;
   };
 
 
   var operation = function(){
-    $(".green-buttons").on("click", function(){
+    $(".green-buttons, [value = '%'], [value = '+/-']").on("click", function(){
 
        numSet.push(float);
-       console.log('numSet: ', numSet);
+    //    console.log('numSet: ', numSet);
       var operatorVal = $(this).attr("value");
-      console.log(operatorVal);
+
       numStrings = [];
+      switch (operatorVal) {
+        case "%":
+        $("#input").val(percentage());
+        console.log(operatorVal);
+          break;
+        case "+/-":
+        var negativeVal = $("#input").val() * -1;
+        $("#input").val(negativeVal);
+          break;
+        case "+":
+        
+          break;
+        case "-":
+
+          break;
+        case "/":
+
+          break;
+        case "*":
+
+          break;
+        case "=":
+
+          break;
+        default:
+
+      }
 
     });
   };

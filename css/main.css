@@ -97,14 +97,13 @@ textarea {
    ========================================================================== */
 
 body#body{
-  background-color: rgb(122, 40, 70)
+  background-color: rgb(19, 10, 74);
 }
 .page-header{
   font-family: 'Source Code Pro';
   text-align: center;
-  font-size: 3em;
-  color: #2D0F34;
-  background-color: rgb(233, 127, 225);
+  color: rgb(19, 10, 74);
+  background-color: rgb(223, 98, 213);
 }
 
 #calc-wrapper{
@@ -120,7 +119,8 @@ body#body{
 input#input{
     height: 74px;
     width: 233px;
-    background-color: rgba(205, 110, 206, 0.5);
+    background-color: #E97FE1;
+
     border-top-left-radius: 4%;
     border-top-right-radius: 4%;
     text-align: right;
@@ -176,9 +176,9 @@ div#plus-minus {
 .col-xs-3 {
   height: 50px;
   width: 15%;
-  /*background-color: rgba(232, 13, 223, 0.7);*/
-  background-color: rgba(199, 20, 176, 0.7);
-  border: 1px solid  black;
+  color: rgb(19, 10, 74);
+  background-color: #F00183;
+  border: 1px solid  #E97FE1;
   font-size: 2em;
   text-align: center;
   /*color: rgba(27, 5, 33, 0.9)*/
@@ -188,13 +188,13 @@ div#plus-minus {
   width: 15%;
   top: -2px;
   border-bottom-left-radius: 7%;
-  /*background-color: rgba(232, 13, 223, 0.7);*/
-  background-color: rgba(199, 20, 176, 0.7);
-  border: 1px solid  black;
-  border-top: 2px solid black;
+  color: rgb(19, 10, 74);
+  background-color: rgb(240, 1, 131);
+  border: 1px solid  #E97FE1;
+  border-top: 2px solid #E97FE1;
   font-size: 2em;
   text-align: center;
-  color: rgba(27, 5, 33, 0.9)
+  /*color: rgba(27, 5, 33, 0.9)*/
   }
 
 div#decimal {
@@ -207,17 +207,25 @@ div#equals {
 
 }
   div.operator{
-    background-color: rgba(77, 157, 35, 0.4);
+    background-color: chartreuse;
     color: black;
   }
 
 .purple-highlight{
   background-color: darkmagenta;
 }
-.green-highlight{
-color: rgb(20, 50, 157);
+
+.green-buttons:hover{
+  background-color: rgb(46, 255, 171);
+}
+.purple-buttons:hover{
+  background-color: #122B5F;
+  color: #E97FE1;
 }
 
+.operator {
+  border: 2px solid;
+}
 
 
 
@@ -398,3 +406,28 @@ color: rgb(20, 50, 157);
         page-break-after: avoid;
     }
 }
+
+
+
+/*// switch (operatorVal) {
+//   case "+":
+//
+//     break;
+//   case "+":
+//
+//     break;
+//   case "-":
+//
+//     break;
+//   case "/":
+//
+//     break;
+//   case "*":
+//
+//     break;
+//   case "=":
+//
+//     break;
+//   default:
+//
+// }*/
