@@ -8,37 +8,34 @@ $(function(){
 
 var nums = [];
 var parsedNums = [];
+var hasBeenToggled, toggled;
+
 
 function clearAll(){
   $('#clearAll').on('click', function(){
     nums = [];
     parsedNums = [];
     $('input').val('');
+    hasBeenToggled = 0;
   });
 }
 
 function toggleNegative(){
-  var hasBeenToggled = 0;
-  var toggled;
+  hasBeenToggled = 0;
+  // toggled;
   $('#plus-minus').on('click', function(){
     if(!hasBeenToggled){
       hasBeenToggled ++;
       toggled = parseInt(nums.join("")) * -1;
+      nums = [];
       $('input').val(toggled);
+      console.log(toggled);
     }
     else{
       $('input').val(toggled * -1);
       toggled = toggled * -1;
+      console.log(toggled);
     }
-  });
-}
-
-function doAllTheMaths(){
-  $('#equals').on('click', function(){
-    console.log(result);
-    parsedNums = [];
-    nums[0] = result;
-    $('input').val(nums[0]);
   });
 }
 
@@ -56,7 +53,9 @@ function opClicked(){
   $(".ops").on("click", function(){
     $op = $(this).attr('value');
     console.log($op);
-    var numSet = parseInt(nums.join(''));
+    var numSet = toggled ? toggled: parseInt(nums.join(''));
+    toggled = '';
+    console.log(toggled);
     nums = [];
     parsedNums.push(numSet);
     console.log(numSet);
@@ -109,4 +108,13 @@ function calculate(opToPass){
   parsedNums = [];
   parsedNums.push(result);
   return parsedNums;
+}
+
+function doAllTheMaths(){
+  $('#equals').on('click', function(){
+    console.log(result);
+    parsedNums = [];
+    nums[0] = result;
+    $('input').val(nums[0]);
+  });
 }
