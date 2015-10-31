@@ -29,12 +29,10 @@ function toggleNegative(){
       toggled = parseFloat(nums.join("")) * -1;
       nums = [];
       $('input').val(toggled);
-      console.log(toggled);
     }
     else{
       $('input').val(toggled * -1);
       toggled = toggled * -1;
-      console.log(toggled);
     }
   });
 }
@@ -42,7 +40,6 @@ function toggleNegative(){
 function toPercent(){
   $('#percent').on('click', function(){
     percentage = parseFloat(nums.join("")) / 100;
-    console.log(percentage);
     nums = [];
     $('input').val(percentage);
   });
@@ -51,7 +48,6 @@ function toPercent(){
 function numClicked(){
   $(".number").on("click", function(){
     nums.push($(this).text().trim());
-    console.log(nums);
     $('input').val(nums.join(""));
   });
 }
@@ -61,15 +57,11 @@ function opClicked(){
   var $op;
   $(".ops").on("click", function(){
     $op = $(this).attr('value');
-    console.log($op);
     var numSet = toggled || percentage ? toggled || percentage: parseFloat(nums.join(''));
     toggled = '';
     percentage = '';
-    console.log(toggled);
     nums = [];
     parsedNums.push(numSet);
-    console.log(numSet);
-    console.log(parsedNums);
     if(!ops[0] && $op !== "="){
       ops.push($op);
     }
@@ -77,7 +69,6 @@ function opClicked(){
       opToPass = ops.pop();
       if($op !== "=")
       ops.push($op);
-      console.log(opToPass);
     }
     if(parsedNums.length === 2){
       result = calculate(opToPass)[0];
@@ -111,7 +102,6 @@ function calculate(opToPass){
       });
       break;
     case "=":
-        console.log(opToPass);
       break;
     default:
   }
@@ -122,7 +112,6 @@ function calculate(opToPass){
 
 function doAllTheMaths(){
   $('#equals').on('click', function(){
-    console.log(result);
     parsedNums = [];
     nums[0] = result;
     $('input').val(nums[0]);
