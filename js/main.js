@@ -12,6 +12,7 @@ function doAllTheMaths(){
     console.log(result);
     parsedNums = [];
     nums[0] = result;
+    $('input').val(nums[0]);
   });
 }
 
@@ -47,6 +48,7 @@ function opClicked(){
     if(parsedNums.length === 2){
       result = calculate(opToPass)[0];
       console.log(result);
+      $('input').val(result);
     }
   });
 }
