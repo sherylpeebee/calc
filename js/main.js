@@ -2,10 +2,19 @@ $(function(){
   numClicked();
   opClicked();
   doAllTheMaths();
+  clearAll();
 });
 
 var nums = [];
 var parsedNums = [];
+
+function clearAll(){
+  $('#clearAll').on('click', function(){
+    nums = [];
+    parsedNums = [];
+    $('input').val('');
+  });
+}
 
 function doAllTheMaths(){
   $('#equals').on('click', function(){
@@ -18,8 +27,7 @@ function doAllTheMaths(){
 
 function numClicked(){
   $(".number").on("click", function(){
-    var input = $(this).text().trim();
-    nums.push(input);
+    nums.push($(this).text().trim());
     console.log(nums);
     $('input').val(nums.join(""));
   });
