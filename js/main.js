@@ -4,11 +4,12 @@ $(function(){
   doAllTheMaths();
   clearAll();
   toggleNegative();
+  toPercent();
 });
 
 var nums = [];
 var parsedNums = [];
-var hasBeenToggled, toggled;
+var hasBeenToggled, toggled, percentage;
 
 
 function clearAll(){
@@ -22,7 +23,6 @@ function clearAll(){
 
 function toggleNegative(){
   hasBeenToggled = 0;
-  // toggled;
   $('#plus-minus').on('click', function(){
     if(!hasBeenToggled){
       hasBeenToggled ++;
@@ -36,6 +36,15 @@ function toggleNegative(){
       toggled = toggled * -1;
       console.log(toggled);
     }
+  });
+}
+
+function toPercent(){
+  $('#percent').on('click', function(){
+    percentage = parseInt(nums.join("")) / 100;
+    console.log(percentage);
+    nums = [];
+    $('input').val(percentage);
   });
 }
 
@@ -53,8 +62,9 @@ function opClicked(){
   $(".ops").on("click", function(){
     $op = $(this).attr('value');
     console.log($op);
-    var numSet = toggled ? toggled: parseInt(nums.join(''));
+    var numSet = toggled || percentage ? toggled || percentage: parseInt(nums.join(''));
     toggled = '';
+    percentage = '';
     console.log(toggled);
     nums = [];
     parsedNums.push(numSet);
