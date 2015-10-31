@@ -3,6 +3,7 @@ $(function(){
   opClicked();
   doAllTheMaths();
   clearAll();
+  toggleNegative();
 });
 
 var nums = [];
@@ -13,6 +14,22 @@ function clearAll(){
     nums = [];
     parsedNums = [];
     $('input').val('');
+  });
+}
+
+function toggleNegative(){
+  var hasBeenToggled = 0;
+  var toggled;
+  $('#plus-minus').on('click', function(){
+    if(!hasBeenToggled){
+      hasBeenToggled ++;
+      toggled = parseInt(nums.join("")) * -1;
+      $('input').val(toggled);
+    }
+    else{
+      $('input').val(toggled * -1);
+      toggled = toggled * -1;
+    }
   });
 }
 
