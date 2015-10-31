@@ -26,7 +26,7 @@ function toggleNegative(){
   $('#plus-minus').on('click', function(){
     if(!hasBeenToggled){
       hasBeenToggled ++;
-      toggled = parseInt(nums.join("")) * -1;
+      toggled = parseFloat(nums.join("")) * -1;
       nums = [];
       $('input').val(toggled);
       console.log(toggled);
@@ -41,7 +41,7 @@ function toggleNegative(){
 
 function toPercent(){
   $('#percent').on('click', function(){
-    percentage = parseInt(nums.join("")) / 100;
+    percentage = parseFloat(nums.join("")) / 100;
     console.log(percentage);
     nums = [];
     $('input').val(percentage);
@@ -62,7 +62,7 @@ function opClicked(){
   $(".ops").on("click", function(){
     $op = $(this).attr('value');
     console.log($op);
-    var numSet = toggled || percentage ? toggled || percentage: parseInt(nums.join(''));
+    var numSet = toggled || percentage ? toggled || percentage: parseFloat(nums.join(''));
     toggled = '';
     percentage = '';
     console.log(toggled);
